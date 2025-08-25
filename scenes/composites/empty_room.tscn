@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://da8xvnjn40tke"]
+
+[ext_resource type="PackedScene" uid="uid://bs82porg31fkj" path="res://scenes/components/managers/placeable_manager/placeable_manager.tscn" id="1_rq1hi"]
+[ext_resource type="PackedScene" uid="uid://by3mregpdgyg2" path="res://scenes/components/managers/species_manager/species_manager.tscn" id="2_42m5j"]
+[ext_resource type="PackedScene" uid="uid://281ubgnejq1i" path="res://scenes/ui/settings/settings.tscn" id="3_dcrih"]
+[ext_resource type="PackedScene" uid="uid://bd4qe5ojx26lj" path="res://scenes/ui/help/help.tscn" id="4_42m5j"]
+
+[node name="EmptyRoom" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="PlaceableManager" parent="." instance=ExtResource("1_rq1hi")]
+
+[node name="SpeciesManager" parent="." instance=ExtResource("2_42m5j")]
+
+[node name="Settings" parent="." node_paths=PackedStringArray("SpeciesManagerNode") instance=ExtResource("3_dcrih")]
+offset_left = 10.0
+offset_top = 10.0
+SpeciesManagerNode = NodePath("../SpeciesManager")
+
+[node name="Help" parent="." instance=ExtResource("4_42m5j")]
+custom_minimum_size = Vector2(550, 550)
+offset_left = 640.0
+offset_top = 225.0
+offset_right = 1280.0
+offset_bottom = 360.0
+grow_vertical = 1

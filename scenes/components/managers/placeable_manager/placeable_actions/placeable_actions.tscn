@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo0rxr8b1v7b6"]
+
+[ext_resource type="Script" uid="uid://cvj2dvr2o12xe" path="res://scenes/components/managers/placeable_manager/placeable_actions/PlaceableActions.cs" id="1_g732u"]
+[ext_resource type="PackedScene" uid="uid://dfqbupklccu4m" path="res://scenes/placeables/wall/wall.tscn" id="2_kti8f"]
+[ext_resource type="PackedScene" uid="uid://ck5xbgr1q4f1n" path="res://scenes/placeables/light/light.tscn" id="3_5hej2"]
+
+[node name="PlaceableActions" type="Node2D"]
+script = ExtResource("1_g732u")
+WallScene = ExtResource("2_kti8f")
+LightScene = ExtResource("3_5hej2")

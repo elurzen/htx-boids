@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxo8j4gsrca0"]
+
+[ext_resource type="Script" uid="uid://crj2s25kuf104" path="res://scenes/ui/sliders/Sliders.cs" id="1_bls23"]
+[ext_resource type="PackedScene" uid="uid://bdjxra8bqnjw7" path="res://scenes/ui/slider_group/slider_group.tscn" id="2_kcppk"]
+
+[node name="Sliders" type="VBoxContainer"]
+script = ExtResource("1_bls23")
+SliderGroupScene = ExtResource("2_kcppk")

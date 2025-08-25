@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc50h88gp3lh2"]
+
+[ext_resource type="Script" uid="uid://cq1lyi2wusu7v" path="res://scenes/boid/Boid.cs" id="1_ojd0c"]
+[ext_resource type="PackedScene" uid="uid://c33d615wdf8y3" path="res://scenes/components/boid_movement/boid_movement.tscn" id="2_rwt48"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_703v6"]
+radius = 3.0
+
+[node name="Boid" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_ojd0c")
+
+[node name="Skin" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-2.5, 2.5, -2.5, -2.5, 2.5, 0)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("CircleShape2D_703v6")
+
+[node name="BoidMovement" parent="." instance=ExtResource("2_rwt48")]

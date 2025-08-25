@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c33d615wdf8y3"]
+
+[ext_resource type="Script" uid="uid://bort7w5rto7fb" path="res://scenes/components/boid_movement/BoidMovement.cs" id="1_knhyi"]
+[ext_resource type="PackedScene" uid="uid://c4gok0vjelrwq" path="res://scenes/components/boid_detection/boid_detection.tscn" id="2_638c4"]
+
+[node name="BoidMovement" type="Node2D" node_paths=PackedStringArray("BoidDetectionNode")]
+script = ExtResource("1_knhyi")
+BoidDetectionNode = NodePath("BoidDetection")
+
+[node name="BoidDetection" parent="." instance=ExtResource("2_638c4")]

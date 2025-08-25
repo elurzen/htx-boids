@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl3sajun04137"]
+
+[ext_resource type="Script" uid="uid://c5c13yv8pn5ca" path="res://scenes/components/managers/species_manager/species_actions/SpeciesActions.cs" id="1_3axt0"]
+
+[node name="SpeciesActions" type="Node2D"]
+script = ExtResource("1_3axt0")

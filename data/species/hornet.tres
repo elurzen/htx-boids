@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SpeciesResource" load_steps=3 format=3 uid="uid://c3fqcwjdo7tik"]
+
+[ext_resource type="PackedScene" uid="uid://cc50h88gp3lh2" path="res://scenes/boid/boid.tscn" id="1_qy1bd"]
+[ext_resource type="Script" uid="uid://dtbn361xigkeh" path="res://resources/SpeciesResource.cs" id="2_if0ax"]
+
+[resource]
+script = ExtResource("2_if0ax")
+SpeciesName = "hornet"
+MinSpeed = 250.0
+MaxSpeed = 350.0
+TurnRate = 3.0
+CollisionRadius = 30.0
+VisionRadius = 40.0
+SeparationWeight = 2.0
+AlignmentWeight = 1.2
+CohesionWeight = 1.0
+SpeedWeight = 2.0
+WallWeight = 100.0
+LightWeight = 0.01
+JitterFrequency = 2.0
+JitterWeight = 0.1
+BoidColor = Color(1, 0.054902, 0, 1)
+BoidScene = ExtResource("1_qy1bd")
+metadata/_custom_type_script = "uid://dtbn361xigkeh"

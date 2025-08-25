@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://281ubgnejq1i"]
+
+[ext_resource type="Script" uid="uid://cn532fmse1l15" path="res://scenes/ui/settings/Settings.cs" id="1_bls23"]
+[ext_resource type="PackedScene" uid="uid://m1ad2lerh58d" path="res://scenes/ui/species_select/species_select.tscn" id="3_osa27"]
+[ext_resource type="PackedScene" uid="uid://cxo8j4gsrca0" path="res://scenes/ui/sliders/sliders.tscn" id="3_qvi1m"]
+
+[node name="Settings" type="VBoxContainer" node_paths=PackedStringArray("SpeciesSelect")]
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 3
+script = ExtResource("1_bls23")
+SpeciesSelect = NodePath("SpeciesSelect")
+
+[node name="SpeciesSelect" parent="." instance=ExtResource("3_osa27")]
+layout_mode = 2
+
+[node name="Sliders" parent="." instance=ExtResource("3_qvi1m")]
+layout_mode = 2

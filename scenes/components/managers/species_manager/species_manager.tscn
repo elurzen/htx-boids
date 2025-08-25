@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://by3mregpdgyg2"]
+
+[ext_resource type="Script" uid="uid://oqnoa6y3m5jn" path="res://scenes/components/managers/species_manager/SpeciesManager.cs" id="1_fg2dg"]
+[ext_resource type="PackedScene" uid="uid://dl3sajun04137" path="res://scenes/components/managers/species_manager/species_actions/species_actions.tscn" id="2_ei7qx"]
+
+[node name="SpeciesManager" type="Node2D"]
+script = ExtResource("1_fg2dg")
+
+[node name="SpeciesActions" parent="." instance=ExtResource("2_ei7qx")]

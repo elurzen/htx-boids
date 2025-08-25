@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs82porg31fkj"]
+
+[ext_resource type="Script" uid="uid://bwd7jvocdtlbf" path="res://scenes/components/managers/placeable_manager/PlaceableManager.cs" id="1_fskre"]
+[ext_resource type="PackedScene" uid="uid://bo0rxr8b1v7b6" path="res://scenes/components/managers/placeable_manager/placeable_actions/placeable_actions.tscn" id="2_j1axm"]
+
+[node name="PlaceableManager" type="Node2D"]
+script = ExtResource("1_fskre")
+
+[node name="PlaceableActions" parent="." instance=ExtResource("2_j1axm")]

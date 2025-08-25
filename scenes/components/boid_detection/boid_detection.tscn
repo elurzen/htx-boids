@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4gok0vjelrwq"]
+
+[ext_resource type="Script" uid="uid://kvhwgn6vmwf" path="res://scenes/components/boid_detection/BoidDetection.cs" id="1_c3vsd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3vsd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oywnv"]
+radius = 30.0
+
+[node name="BoidDetection" type="Node2D" node_paths=PackedStringArray("CollisionArea", "VisionArea")]
+script = ExtResource("1_c3vsd")
+CollisionArea = NodePath("CollisionArea")
+VisionArea = NodePath("VisionArea")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 131
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("CircleShape2D_c3vsd")
+debug_color = Color(0.955415, 0, 0.270489, 0.42)
+
+[node name="VisionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
+shape = SubResource("CircleShape2D_oywnv")

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SpeciesResource" load_steps=3 format=3 uid="uid://mo5wb3lfph48"]
+
+[ext_resource type="PackedScene" uid="uid://cc50h88gp3lh2" path="res://scenes/boid/boid.tscn" id="1_i34la"]
+[ext_resource type="Script" uid="uid://dtbn361xigkeh" path="res://resources/SpeciesResource.cs" id="2_5xo2s"]
+
+[resource]
+script = ExtResource("2_5xo2s")
+SpeciesName = "fly"
+MinSpeed = 170.0
+MaxSpeed = 240.0
+TurnRate = 4.0
+CollisionRadius = 15.0
+VisionRadius = 50.0
+SeparationWeight = 1.66
+AlignmentWeight = 0.2
+CohesionWeight = 2.11
+SpeedWeight = 1.7
+WallWeight = 100.0
+LightWeight = 0.05
+JitterFrequency = 1.0
+JitterWeight = 2.2
+BoidColor = Color(0.0862745, 0.388235, 1, 1)
+BoidScene = ExtResource("1_i34la")
+metadata/_custom_type_script = "uid://dtbn361xigkeh"

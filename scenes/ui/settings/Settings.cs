@@ -22,7 +22,7 @@ public partial class Settings : Control
 		if(@event.IsActionPressed("toggle_settings"))
 		{
 			Visible = !Visible;
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 		}
     }
 } 

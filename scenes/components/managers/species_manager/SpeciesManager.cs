@@ -46,7 +46,7 @@ public partial class SpeciesManager : Node
 		if(@event.IsActionPressed("kill_all_boids"))
 		{
 			_speciesActionsNode.KillAllBoids(SpeciesNodeDict);
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 			return;
 		}
 
@@ -62,28 +62,28 @@ public partial class SpeciesManager : Node
 		if(@event.IsActionPressed("spawn_boid"))
 		{
 			_speciesActionsNode.SpawnBoid(speciesNode, 1);
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 			return;
 		}
 
 		if(@event.IsActionPressed("spawn_10_boids"))
 		{
 			_speciesActionsNode.SpawnBoid(speciesNode, 10);
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 			return;
 		}
 
 		if(@event.IsActionPressed("spawn_20_boids"))
 		{
 			_speciesActionsNode.SpawnBoid(speciesNode, 20);
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 			return;
 		}
 
 		if(@event.IsActionPressed("kill_boid_species"))
 		{
 			_speciesActionsNode.KillBoidSpecies(speciesNode);
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 			return;
 		}
     }

@@ -18,7 +18,7 @@ public partial class Help : Panel
 		if(@event.IsActionPressed("toggle_help"))
 		{
 			Visible = !Visible;
-			SetProcessUnhandledInput(true);
+			GetViewport().SetInputAsHandled();
 		}
 	}
 

@@ -1,8 +1,6 @@
 using Godot;
 using System;
 
-public record SliderDefinition(string Name, float MinValue, float MaxValue, float InitialValue, float StepValue);
-
 public partial class Settings : Control
 {
 	[Export] public SpeciesManager SpeciesManagerNode {get; private set;}

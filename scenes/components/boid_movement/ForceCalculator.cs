@@ -155,7 +155,7 @@ public static class ForceCalculator
 		cohesionForce = cohesionForce.Normalized();
 
 		//Speed
-		averageSpeed /= attractorsInVision.Count;
+		averageSpeed /= allyCount;
 		float speedAdjustment = averageSpeed - boid.Speed;
 
 		return new AttractionForces(alignmentForce, cohesionForce, lightForce, speedAdjustment);

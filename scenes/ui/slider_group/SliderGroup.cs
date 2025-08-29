@@ -21,11 +21,11 @@ public partial class SliderGroup : Control
     public override void _Ready()
     {
 		_label = GetNodeOrNull<Label>("Label");
-		if(_label == null)
+		if (_label == null)
 			GD.PrintErr("SliderGroup.cs: _label is null!");
 
 		_slider = GetNodeOrNull<HSlider>("HSlider");
-		if(_slider == null)
+		if (_slider == null)
 			GD.PrintErr("SliderGroup.cs: _label is null!");
 
 		_slider.ValueChanged += OnSliderValueChanged;

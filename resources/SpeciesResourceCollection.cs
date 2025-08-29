@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public partial class SpeciesResourceCollection : Resource
 {
-	private Dictionary<string, SpeciesResource> _speciesDict = new();
-	public IReadOnlyDictionary<string, SpeciesResource> SpeciesDict => _speciesDict;
+	public Dictionary<string, SpeciesResource> SpeciesDict = new();
 
 	public SpeciesResourceCollection(){}
 	
@@ -31,14 +30,14 @@ public partial class SpeciesResourceCollection : Resource
 			if (resource != null)
 			{
 				string key = fileName.GetBaseName().ToLower();
-				_speciesDict.TryAdd(key, resource);
+				SpeciesDict.TryAdd(key, resource);
 			}
 		}
 	}
 
 	public SpeciesResource GetSpeciesResource(string speciesName)
 	{
-		if(!_speciesDict.TryGetValue(speciesName, out SpeciesResource returnSpeciesResource))
+		if(!SpeciesDict.TryGetValue(speciesName, out SpeciesResource returnSpeciesResource))
 		{
 			GD.PrintErr($"SpeciesResourceCollection.cs: No Species found with name {speciesName}");
 		}

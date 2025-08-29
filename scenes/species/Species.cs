@@ -3,42 +3,41 @@ using System;
 
 public partial class Species : Node
 {
-	private SpeciesResource _speciesData;
+	private SpeciesResource _speciesResourceNode;
 
-	public string SpeciesName => _speciesData.SpeciesName;
-	public float MinSpeed => _speciesData.MinSpeed;
-	public float MaxSpeed => _speciesData.MaxSpeed;
-	public float TurnRate => _speciesData.TurnRate;
-	public float CollisionRadius => _speciesData.CollisionRadius;
-	public float VisionRadius => _speciesData.VisionRadius;
-	public float SeparationWeight => _speciesData.SeparationWeight;
-	public float AlignmentWeight => _speciesData.AlignmentWeight;
-	public float CohesionWeight => _speciesData.CohesionWeight;
-	public float SpeedWeight => _speciesData.SpeedWeight;
-	public float WallWeight => _speciesData.WallWeight;
-	public float LightWeight => _speciesData.LightWeight;
-	public float JitterFrequency => _speciesData.JitterFrequency;
-	public float JitterWeight => _speciesData.JitterWeight;
-	public Color BoidColor => _speciesData.BoidColor;
-	public PackedScene BoidScene => _speciesData.BoidScene;
+	public string SpeciesName => _speciesResourceNode.SpeciesName;
+	public float MinSpeed => _speciesResourceNode.MinSpeed;
+	public float MaxSpeed => _speciesResourceNode.MaxSpeed;
+	public float TurnRate => _speciesResourceNode.TurnRate;
+	public float CollisionRadius => _speciesResourceNode.CollisionRadius;
+	public float VisionRadius => _speciesResourceNode.VisionRadius;
+	public float SeparationWeight => _speciesResourceNode.SeparationWeight;
+	public float AlignmentWeight => _speciesResourceNode.AlignmentWeight;
+	public float CohesionWeight => _speciesResourceNode.CohesionWeight;
+	public float SpeedWeight => _speciesResourceNode.SpeedWeight;
+	public float WallWeight => _speciesResourceNode.WallWeight;
+	public float LightWeight => _speciesResourceNode.LightWeight;
+	public float JitterFrequency => _speciesResourceNode.JitterFrequency;
+	public float JitterWeight => _speciesResourceNode.JitterWeight;
+	public Color BoidColor => _speciesResourceNode.BoidColor;
+	public PackedScene BoidScene => _speciesResourceNode.BoidScene;
 
 	[Signal] public delegate void RadaiiUpdatedEventHandler();
 
     public override void _Ready()
     {
-		if (_speciesData == null)
+		if (_speciesResourceNode == null)
 			GD.PrintErr("Species.cs: SpeciesData is null!");
 
-		if (_speciesData.BoidScene == null)
+		if (_speciesResourceNode.BoidScene == null)
 			GD.PrintErr("Species.cs: BoidScene is null!");
 
-		// AddToGroup("species");
-		AddToGroup(_speciesData.SpeciesName);
+		AddToGroup(_speciesResourceNode.SpeciesName);
     }
 
-	public void SetSpeciesData(SpeciesResource speciesData)
+	public void SetSpeciesData(SpeciesResource speciesResourceNode)
 	{
-		_speciesData = speciesData;
+		_speciesResourceNode = speciesResourceNode;
 	}
 
 	public void SpawnBoid(Vector2 position)
@@ -64,37 +63,37 @@ public partial class Species : Node
 		bool updatedRadius = false;
 
 		if (parameterName == "Min Speed")
-			_speciesData.MinSpeed = Mathf.Clamp(value, 0.0f, MaxSpeed);
+			_speciesResourceNode.MinSpeed = Mathf.Clamp(value, 0.0f, MaxSpeed);
 		else if (parameterName == "Max Speed")
-			_speciesData.MaxSpeed = Mathf.Clamp(value, MinSpeed, 500.0f);
+			_speciesResourceNode.MaxSpeed = Mathf.Clamp(value, MinSpeed, 500.0f);
 		else if (parameterName == "Turn Rate")
-			_speciesData.TurnRate = value;
+			_speciesResourceNode.TurnRate = value;
 		else if (parameterName == "Collision Radius")//doesnt work rn
 		{
-			_speciesData.CollisionRadius = value;
+			_speciesResourceNode.CollisionRadius = value;
 			updatedRadius = true;
 		}
 		else if (parameterName == "Vision Radius")//doesnt work rn
 		{
-			_speciesData.VisionRadius = value;
+			_speciesResourceNode.VisionRadius = value;
 			updatedRadius = true;
 		}
 		else if (parameterName == "Separation Weight")
-			_speciesData.SeparationWeight = value;
+			_speciesResourceNode.SeparationWeight = value;
 		else if (parameterName == "Alignment Weight")
-			_speciesData.AlignmentWeight = value;
+			_speciesResourceNode.AlignmentWeight = value;
 		else if (parameterName == "Cohesion Weight")
-			_speciesData.CohesionWeight = value;
+			_speciesResourceNode.CohesionWeight = value;
 		else if (parameterName == "Speed Weight")
-			_speciesData.SpeedWeight = value;
+			_speciesResourceNode.SpeedWeight = value;
 		else if (parameterName == "Wall Weight")
-			_speciesData.WallWeight = value;
+			_speciesResourceNode.WallWeight = value;
 		else if (parameterName == "Light Weight")
-			_speciesData.LightWeight = value;
+			_speciesResourceNode.LightWeight = value;
 		else if (parameterName == "Jitter Frequency")
-			_speciesData.JitterFrequency = value;
+			_speciesResourceNode.JitterFrequency = value;
 		else if (parameterName == "Jitter Weight")
-			_speciesData.JitterWeight = value;
+			_speciesResourceNode.JitterWeight = value;
 
 		if (updatedRadius)
 			EmitSignal(SignalName.RadaiiUpdated);

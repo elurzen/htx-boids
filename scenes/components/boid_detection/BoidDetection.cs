@@ -14,7 +14,6 @@ public partial class BoidDetection : Node2D
 	public HashSet<Node2D> ObstacleHashSet {get; private set;} = new();
 	public HashSet<Node2D> VisionHashSet {get; private set;} = new();
 
-
 	public override void _Ready()
 	{
 
@@ -41,34 +40,20 @@ public partial class BoidDetection : Node2D
             GD.PrintErr("BoidDetection.cs: _boid is null!");
 
         if (CollisionArea == null)
-        {
             GD.PrintErr("BoidDetection.cs: _collisionArea is null!");
-        }
 		else
-		{
 			_circleCollisionShape = CollisionArea.GetNode<CollisionShape2D>("CollisionShape2D").Shape as CircleShape2D;
-		}
 
         if (VisionArea == null)
-        {
             GD.PrintErr("BoidDetection.cs: _visionArea is null!");
-        }
 		else
-		{
 			_circleVisionShape = VisionArea.GetNode<CollisionShape2D>("CollisionShape2D").Shape as CircleShape2D;
-		}
 
         if (_circleCollisionShape == null)
-        {
             GD.PrintErr("BoidDetection.cs: _circleCollisionShape is null!");
-        }
 
         if (_circleVisionShape == null)
-        {
             GD.PrintErr("BoidDetection.cs: _circleVisionShape is null!");
-        }
-
-		// DebugCollisionSetup();
     }
 
 	private void InitSignals()
@@ -91,6 +76,9 @@ public partial class BoidDetection : Node2D
 		if (_circleCollisionShape != null)
 			_circleCollisionShape.Radius = _boid.CollisionRadius;
 
+		if (_boid == null)
+			return;
+	
 		Species species = _boid.GetParentOrNull<Species>();
 		if (species != null)
 			species.RadaiiUpdated += OnRadaiiUpdated;
@@ -119,7 +107,7 @@ public partial class BoidDetection : Node2D
 
 		if (boidBody != null && 
 			boidBody != _boid && 
-			boidBody.Species == _boid.Species
+			boidBody.SpeciesName == _boid.SpeciesName
 		)
 		{
 			VisionHashSet.Add(body);
@@ -130,45 +118,4 @@ public partial class BoidDetection : Node2D
 	{
 		VisionHashSet.Remove(body);
 	}
-
-
-
-
-	// private void DebugCollisionSetup()
-	// {
-	// 	if (CollisionArea != null)
-	// 	{
-	// 		GD.Print($"CollisionArea - Layer: {CollisionArea.CollisionLayer}, Mask: {CollisionArea.CollisionMask}");
-	// 	}
-	//
-	// 	if (VisionArea != null)
-	// 	{
-	// 		GD.Print($"VisionArea - Layer: {VisionArea.CollisionLayer}, Mask: {VisionArea.CollisionMask}");
-	// 	}
-	//
-	// 	// Check what's already in the scene that should be detected
-	// 	var allBodies = GetTree().GetNodesInGroup("obstacles");
-	// 	GD.Print($"Found {allBodies.Count} obstacles in scene:");
-	// 	foreach (Node body in allBodies)
-	// 	{
-	// 		if (body is StaticBody2D staticBody)
-	// 		{
-	// 			GD.Print($"  - {body.Name}: Layer {staticBody.CollisionLayer}, Mask {staticBody.CollisionMask}, Groups: [{string.Join(", ", body.GetGroups())}]");
-	// 		}
-	// 		else if (body is CharacterBody2D charBody)
-	// 		{
-	// 			GD.Print($"  - {body.Name}: Layer {charBody.CollisionLayer}, Mask {charBody.CollisionMask}, Groups: [{string.Join(", ", body.GetGroups())}]");
-	// 		}
-	// 	}
-	//
-	// 	var allLights = GetTree().GetNodesInGroup("lights");
-	// 	GD.Print($"Found {allLights.Count} lights in scene:");
-	// 	foreach (Node light in allLights)
-	// 	{
-	// 		if (light is StaticBody2D staticBody)
-	// 		{
-	// 			GD.Print($"  - {light.Name}: Layer {staticBody.CollisionLayer}, Mask {staticBody.CollisionMask}, Groups: [{string.Join(", ", light.GetGroups())}]");
-	// 		}
-	// 	}
-	// }
 }

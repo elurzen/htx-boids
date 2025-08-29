@@ -86,7 +86,5 @@ public partial class SpeciesManager : Node
 			SetProcessUnhandledInput(true);
 			return;
 		}
-
     }
-
 }

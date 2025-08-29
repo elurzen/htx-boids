@@ -5,7 +5,7 @@ public partial class Boid : CharacterBody2D
 {
 	private Species _species;
 
-	public string Species => _species.SpeciesName;
+	public string SpeciesName => _species.SpeciesName;
     public float MinSpeed => _species.MinSpeed;
     public float MaxSpeed => _species.MaxSpeed;
     public float TurnRate => _species.TurnRate;
@@ -24,7 +24,7 @@ public partial class Boid : CharacterBody2D
     public float Speed { get; set; } = 150f;
 	public Vector2 CurrentDirection {get; private set;} = Vector2.Right;
 	public bool CanJitter {get; private set;} = false;
-	public Vector2 CurrentJitter = Vector2.Zero;
+	public Vector2 CurrentJitter {get; set;} = Vector2.Zero;
 
 	private Polygon2D _skin;
 	public Timer JitterTimer {get; private set;}
